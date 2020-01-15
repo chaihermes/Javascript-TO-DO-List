@@ -1,0 +1,41 @@
+.tarefa{
+    border: 1px solid #404040;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    min-width: 350px;
+}
+
+.btn{
+    border-radius: 50px;
+}
+
+#addTarefa{
+    border: 1px solid #404040;
+    border-radius: 30px;
+    margin-left: 110px;
+    width: 500px;
+}
+
+#add{
+    border: 1px solid #404040;
+    border-radius: 30px;
+    margin-top: 15px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    height: 10vh;
+    width: 100%;
+}
+
+h6{
+    margin-left: 120px;
+}
+
+img{
+    width: 40px;
+    height: 40px;
+    
+}

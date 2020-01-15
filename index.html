@@ -4,9 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>TO DO List</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- CSS interno do projeto -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header>
+        <nav class="navbar navbar-light bg-success">
+            <a class="navbar-brand" href="#"><strong>TO DO List</strong></a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>A fazer</h3>
+            </div>
+        </div>
+        
+        <div class="row" id="board">
+            <!-- <div class="tarefa">
+                <div class="col-md-8">
+                    A tarefa
+                </div>
+            
+                <div class="col-md-2">
+                    <input class="btn btn-success" type="button" >
+                </div>
+            </div>
+            
+
+            <div class="tarefa">
+                <div class="col-md-8">
+                    A tarefa
+                </div>
+            
+                <div class="col-md-2">
+                    <input class="btn btn-success" type="button" >
+                </div>
+            </div> -->
+            
+           
+            
+        </div>
+        
+    </main>
+
+    <!-- área onde iremos adicionar uma nova tarefa -->
+    <footer class="bg-success">
+        <div class="row">
+            <div class="col-md-8">
+                <h6>Nova Tarefa:</h6> 
+                <input type="text" id="addTarefa">
+            </div>
+            <div class="col-md-2">
+                <!-- <button id="add"><strong>+</strong></button> -->
+                <img src="img/add.jpg" alt="add" id="add">
+            </div>
+        </div>
+
+    </footer>
+
+
+
+    <!-- JavaScript interno do projeto -->
+    <script src="js/script.js"></script>
 </body>
-</html>
+</html> 
