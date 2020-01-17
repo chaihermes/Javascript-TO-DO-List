@@ -29,6 +29,17 @@ if(localStorage.getItem('listaTarefas')){
 //É um looping que mostra todas as tarefas salvas no local storage.
 mostrarNaTela(listaTarefas);
 
+inputAdd.onkeypress = function(event){
+    //console.log(event);
+    if(event.key == "Enter"){
+        let valorDigitado = inputAdd.value;
+        listaTarefas.push(valorDigitado);
+        gerarTarefa(valorDigitado, listaTarefas.length -1);
+        localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas));
+
+    }
+}
+
 buttonAdd.onclick = function(event){
 
     //essa função mostra qual é o evento usado (nesse caso, o botao)
