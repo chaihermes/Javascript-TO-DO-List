@@ -37,6 +37,8 @@ inputAdd.onkeypress = function(event){
         gerarTarefa(valorDigitado, listaTarefas.length -1);
         localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas));
 
+        //deveria limpar o campo de digitar as tarefas:
+        inputAdd.value = "";
     }
 }
 
