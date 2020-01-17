@@ -24,43 +24,26 @@ if(localStorage.getItem('listaTarefas')){
  //o local storage só salva as infomrações no navegador do usuário.
 //o localStorage é possível visualizar no inspecionar elemento, Aplication, Local Storage.
 
-//já mostra na tela o que tem salvo no local storage.
+//já mostra na tela o que tem salvo no local storage. Atraves da função mostrarNaTela definida abaixo. 
+//É um looping que mostra todas as tarefas salvas no local storage.
 mostrarNaTela(listaTarefas);
 
-buttonAdd.onclick = function(){
+buttonAdd.onclick = function(event){
+
+    //essa função mostra qual é o evento usado (nesse caso, o botao)
+    //let botaoClicado = event.target;
+    //console.log(botaoClicado);
     //uma forma de fazer é criando uma função anônima.
     //alert("Estou no click");
 
     //Armazena o valor digitado pelo usuário
-    let valorDigitado = inputAdd.value;
+    let valorDigitadoPeloUser = inputAdd.value;
     //acrescenta o valor digitado no array listaTarefas.
-    listaTarefas.push(valorDigitado);
+    listaTarefas.push(valorDigitadoPeloUser);
 
-
-    //cria a div e deppois atribui a classe a essa div
-    let tarefa = document.createElement('div');
-    tarefa.setAttribute('class', 'tarefa');
-
-    let titulo = document.createElement('div');
-    titulo.setAttribute('class', 'col-md-8');
-    titulo.textContent = valorDigitado;
-
-    let buttonCheck = document.createElement('div');
-    buttonCheck.setAttribute('class', 'col-md-2');
-
-    let inputCheck = document.createElement('input');
-    inputCheck.setAttribute('class', 'btn btn-success');
-    inputCheck.setAttribute('type', 'button');
-
-    //appendChild coloca um elemento dentro de outro.
-    //aqui está usando as variáveis dentro dos ().
-    buttonCheck.appendChild(inputCheck);
-    tarefa.appendChild(titulo);
-    tarefa.appendChild(buttonCheck);
-
-    //inseriu as tarefas dentro da div board
-    board.appendChild(tarefa);
-
+    //chamando a função de criar a tarefa definida abaixo:
+    gerarTarefa(valorDigitado);
+    
     //atualiza as informações no local storage com o array recebido.
     localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas));
 }
@@ -77,8 +60,10 @@ function mostrarNaTela(listaTarefas){
 
 //essa função é pra gerar novas tarefas:
 function gerarTarefa(valorDigitado){
+    //cria a div e deppois atribui a classe a essa div
     let tarefa = document.createElement('div');
     tarefa.setAttribute('class', 'tarefa');
+    //tarefa.setAttribute('id', 'task');
 
     let titulo = document.createElement('div');
     titulo.setAttribute('class', 'col-md-8');
@@ -89,11 +74,28 @@ function gerarTarefa(valorDigitado){
 
     let inputCheck = document.createElement('input');
     inputCheck.setAttribute('class', 'btn btn-success');
+    //inputCheck.setAttribute('id', 'idButton');
     inputCheck.setAttribute('type', 'button');
+
+    //onclick add um evento de click no botão pra cada evento criado, ou seja, pra cada nova tarefa.
+    //o target serve pra saber qual o botão foi clicado.
+    //selecionamos o evento que acabou de acontecer. Usamos um informação (target), pra saber qual botão foi
+    //clicado. O parentNode serve pra saber quem é o pai que segura esse evento (qual div).
+    //O remove remove tudo que está na variável tarefaPai.
+    inputCheck.onclick = function(event){
+        let tarefaPai = event.target.parentNode.parentNode;
+        tarefaPai.remove();
+
+        //Se colocar só a variável tarefa com o remove também funciona, pois a variável que cria a div que segura
+        //toda a informação do bloco é essa.
+        //tarefa.remove();
+    }; 
 
     buttonCheck.appendChild(inputCheck);
 
     tarefa.appendChild(titulo);
     tarefa.appendChild(buttonCheck);
+    //inseriu as tarefas dentro da div board
     board.appendChild(tarefa);
 }
+
